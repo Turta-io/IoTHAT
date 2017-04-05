@@ -3,6 +3,7 @@
 IoT Alanına hızlı başlangıç yapmanız ve ilerlemeniz için Microsoft işbirliğiyle sizlere 16 saatlik video eğitimi hazırladık.
 
 ## Eğitim İçeriği
+Bu eğitimde aşağıda belirtilen konuları paylaştık:
 - IoT Kavramı
 - Raspberry Pi ve IoT HAT incelemesi
 - Raspberry Pi üzerine Windows 10 IoT Core işletim sistemi yüklemek
@@ -17,10 +18,10 @@ IoT Alanına hızlı başlangıç yapmanız ve ilerlemeniz için Microsoft işbi
 Sanayi 4.0 Eğitimini  [acikakademi.com/portal/egitimler/sanayi-4-0.aspx](https://www.acikakademi.com/portal/egitimler/sanayi-4-0.aspx) adresinden izleyebilirsiniz.
 
 ## Donanım Listesi
-Sanayi 4.0 eğitimlerinde kullanılan donanımlara [turta.io/acikakademi/](http://turta.io/acikakademi/") adresinden ulaşabilirsiniz.
+Sanayi 4.0 eğitimlerinde kullanılan donanımlara [turta.io/acikakademi](http://turta.io/acikakademi/) adresinden ulaşabilirsiniz.
 
 ## Kullanım Kılavuzu
-Bileşenleri nasıl kullanacağınızı anlatan kılavuza Wiki bölümünden erişebilirsiniz. [github.com/Turta-io/IoTHAT/wiki](https://github.com/Turta-io/IoTHAT/wiki "IoT HAT Wiki")
+Bileşenleri nasıl kullanacağınızı anlatan kılavuza Wiki bölümünden erişebilirsiniz. [IoT HAT Wiki](https://github.com/Turta-io/IoTHAT/wiki)
 
 ## Sorularınız
 Sorularınız için Açık Akademi portalında bulunan [Soru Cevap](https://sorucevap.acikakademi.com/) bölümünü kullanabilirsiniz.
