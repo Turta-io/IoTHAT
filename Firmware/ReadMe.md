@@ -12,11 +12,11 @@ IoT HAT üzerinde bulunan PIC16F182X modeli mikrodenetleyicinin ICSP bağlantıs
 
 ![IoTHAT ICSP Bağlantısı](http://turta.io/githubimg/IoTHAT_ICSP.png)
 
-IoT HAT Header Pin 12 -> ICSP CLK
-IoT HAT Header Pin 13 -> ICSP DAT
-IoT HAT Header Pin 17 -> ICSP 3.3V
-IoT HAT Header Pin 20 -> ICSP GND
-IoT HAT Header Pin 26 -> ICSP MCLR
+IoT HAT Header Pin 12 -> ICSP CLK  
+IoT HAT Header Pin 13 -> ICSP DAT  
+IoT HAT Header Pin 17 -> ICSP 3.3V  
+IoT HAT Header Pin 20 -> ICSP GND  
+IoT HAT Header Pin 26 -> ICSP MCLR  
 
 ## Programlayıcı Ayarları
 Programlayıcınız üzerinde yapmanız gereken iki önemli ayar bulunur.
@@ -29,7 +29,7 @@ IoT HAT Serisinde iki farklı model mikrodenetleyici kullanılmıştır. Mikrode
 FW 1.04:
 - Analog okuma ve kızılötesi iletişim değerlerinin I2C iletişiminde bazı Raspberry Pi kartlarına hatalı aktarımı düzeltildi.
 
-## Power User ve Hacker'lar için ipuçları
+## Power User ve Hacker'lar için İpuçları
 - IoT HAT üzerindeki sensörler ve mikrodenetleyici aynı I2C hattı üzerine bağlıdır. Geliştireceğiniz PIC programı ile Raspberry Pi'a ihtiyaç duymadan kartınızı Arduino gibi başka bir sistemle kullanabilirsiniz. Pinlerin 3.3V toleranslı olduğunu unutmayın.
 
 - Mikrodenetleyicinizin UART pinleri Raspberry Pi üzerindeki RXD0 / TXD0 pinlerine bağlıdır, ancak firmware üzerinde bu iletişim kullanılmamaktadır. Geliştireceğiniz PIC programı ile UART üzerinden de iletişim sağlayabilirsiniz. Örneğin, tüm sensör hesaplamalarını PIC'e yaptırıp UART üzerinden direkt sonuçları okuyabilirsiniz.
