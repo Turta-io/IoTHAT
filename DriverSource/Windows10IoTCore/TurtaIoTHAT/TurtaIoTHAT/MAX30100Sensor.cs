@@ -6,7 +6,6 @@
 using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
-using Windows.Devices.Gpio;
 using Windows.Devices.I2c;
 
 namespace TurtaIoTHAT
@@ -88,7 +87,7 @@ namespace TurtaIoTHAT
             PW_0800uS_ADC_15bit = 0b00000010,
             PW_1600uS_ADC_16bit = 0b00000011
         }
-        
+
         public enum REDLEDCurrent : byte
         {
             MA_00_0 = 0b00000000,
@@ -245,7 +244,7 @@ namespace TurtaIoTHAT
 
             return readBuffer;
         }
-        
+
         #endregion
 
         #region Sensor Configuration
@@ -297,7 +296,7 @@ namespace TurtaIoTHAT
 
             await Task.Delay(1);
         }
-        
+
         /// <summary>
         /// SPO2 Measurement configuration.
         /// </summary>
@@ -381,20 +380,18 @@ namespace TurtaIoTHAT
         }
 
         /// <summary>
-        /// Reads HR and SPO2.
+        /// Reads HR and SPO2 samples. User needs to call this method 100 times per second to detect value movement.
         /// </summary>
-        /// <returns>HR and SPO2 values respectively.</returns>
+        /// <returns>HR and SPO2 samples respectively.</returns>
         public int[] ReadHRandSPO2()
         {
             int[] avgData = ReadFIFOData();
-
-            avgData[0] /= 200;
 
             return avgData;
         }
 
         #endregion
-        
+
         #region Disposal
 
         /// <summary>
