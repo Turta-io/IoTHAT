@@ -55,7 +55,7 @@ namespace BME280SampleApp
 
         private static void SensorTimerTick(object state)
         {
-            // Write sensor data to output / intermediate window
+            // Write sensor data to output / immediate window
             Debug.WriteLine("Temperature..: " + bme.ReadTemperature().ToString("00.0") + "C");
             Debug.WriteLine("Humidity.....: %" + bme.ReadHumidity().ToString("00.0" + "RH"));
             Debug.WriteLine("Pressure.....: " + bme.ReadPressure().ToString(".0") + "Pa");

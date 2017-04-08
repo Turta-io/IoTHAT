@@ -43,7 +43,7 @@ namespace APDS9960AmbientLightSampleApp
 
         private static void SensorTimerTick(object state)
         {
-            // Write sensor data to output / intermediate window
+            // Write sensor data to output / immediate window
             Debug.WriteLine("Ambient Light: " + apds.ReadAmbientLight().ToString());
             Debug.WriteLine("-----");
         }

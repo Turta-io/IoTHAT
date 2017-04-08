@@ -45,8 +45,8 @@ namespace APDS9960RGBLightSampleApp
         {
             // Read sensor data
             int[] rgbLight = apds.ReadRGBLight();
-            
-            // Write sensor data to output / intermediate window
+
+            // Write sensor data to output / immediate window
             Debug.WriteLine("Red Light..: " + rgbLight[0].ToString());
             Debug.WriteLine("Green Light: " + rgbLight[1].ToString());
             Debug.WriteLine("Blue Light.: " + rgbLight[2].ToString());

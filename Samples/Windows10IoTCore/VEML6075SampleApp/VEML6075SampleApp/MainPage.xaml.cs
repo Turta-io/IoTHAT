@@ -48,7 +48,7 @@ namespace VEML6075SampleApp
 
         private static void SensorTimerTick(object state)
         {
-            // Write sensor data to output / intermediate window
+            // Write sensor data to output / immediate window
             Debug.WriteLine("UVA........: " + veml.Read_RAW_UVA().ToString());
             Debug.WriteLine("UVB........: " + veml.Read_RAW_UVB().ToString());
             Debug.WriteLine("UVA Index..: " + veml.Calculate_UV_Index_A().ToString());
