@@ -22,7 +22,7 @@ namespace IRRemoteReceiverSampleApp
             // Initialize and configure IR Remote Controller
             irRemoteController = new IRRemoteController(true);
 
-            // Subscribe to IR Remote Data Received events
+            // Subscribe to IR Remote Data Received event
             irRemoteController.IRRemoteDataReceived += IRRemoteDataReceived;
         }
 
