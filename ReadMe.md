@@ -66,7 +66,7 @@ Röle 1 ve 2 kontrolü sırasıyla GPIO20 ve 12 pinleri üzerinden gerçekleşir
 
 Optokuplör 1, 2, 3 ve 4 girişleri sırasıyla GPIO 13, 19, 16 ve 26 pinleri üzerinden okunur.
 
-### Vishay TSOP38338 Kızılötesi Alıcı ve QEE133 Kızılötesi Verici
+### Vishay TSOP38338 Kızılötesi Alıcı ve QEE113 Kızılötesi Verici
 Kızılötesi kumanda verisini okur ve kızılötesi veri gönderir.
 - Kızılötesi alıcı: Alıcı modülü 38KHz'de NEC protokolünde 4 Byte'lık veri okur. Veri okunması tamamlandığında GPIO pininde interrupt sinyali oluşur ve I2C üzerinden gelen Byte dizisi okunur.
 - Kızılötesi verici: 100mW gücünde 38KHz NEC protokolünde 4 Byte'lık veri gönderir.
@@ -89,9 +89,9 @@ Analog ölçüme I2C 0x28 adresinden erişilir.
 G/Ç Soketlerindeki GPIO pinlerinin numaraları sırasıyla GPIO 21, 22, 23 ve 24'dür.
 
 ## Yazılım Desteği
-IoT HAT, GPIO ve I2C erişimi sağlayan tüm işletim sistemlerinde kullanılabilir. Başlangıçta Windows 10 IoT Core için C# / UWP için sürücü ve örnek uygulamalar paylaşılmıştır. İlerleyen zamanda diğer platformlar için de örnekler paylaşılacaktır. Kullandığınız platform için geliştirilmiş 3. parti sürücüleri de kullanabilirsiniz.
+IoT HAT, GPIO ve I2C erişimi sağlayan tüm işletim sistemlerinde kullanılabilir. Başlangıçta Windows 10 IoT Core üzerinde C# / UWP için sürücü ve örnek uygulamalar paylaşılmıştır. İlerleyen zamanda diğer platformlar için de örnekler paylaşılacaktır. Kullandığınız platform için geliştirilmiş 3. parti sürücüleri de kullanabilirsiniz.
 
-## Endüstri 4.0 Eğitimi
+## Sanayi 4.0 Eğitimi
 Nesnelerin İnterneti kavramına hızlı giriş yapabilmeniz ve modern geliştirme teknolojilerini yakalamanız için Microsoft işbirliğiyle 16 saatlik video eğitimi hazırladık. Bu seride Raspberry Pi için Windows 10 IoT Core yüklenmesini, temel bir UWP uygulaması geliştirmeyi, Raspberry Pi'da uygulama çalıştırmayı, Azure IoT Hub'a veri göndermeyi ve Power BI'da verileri göreceksiniz. Eğitime https://www.acikakademi.com/portal/egitimler/sanayi-4-0.aspx adresinden erişebilirsiniz.
 
 ## Etkinliklerimiz
