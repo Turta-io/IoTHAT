@@ -12,11 +12,11 @@ IoT HAT üzerinde bulunan PIC16F182X modeli mikrodenetleyicinin ICSP bağlantıs
 
 ![IoTHAT ICSP Bağlantısı](https://turta.io/githubimg/IoTHAT_ICSP.png)
 
-IoT HAT Header Pin 12 -> ICSP CLK
-IoT HAT Header Pin 13 -> ICSP DAT
-IoT HAT Header Pin 17 -> ICSP 3.3V
-IoT HAT Header Pin 20 -> ICSP GND
-IoT HAT Header Pin 26 -> ICSP MCLR
+IoT HAT Header Pin 12 -> ICSP CLK  
+IoT HAT Header Pin 13 -> ICSP DAT  
+IoT HAT Header Pin 17 -> ICSP 3.3V  
+IoT HAT Header Pin 20 -> ICSP GND  
+IoT HAT Header Pin 26 -> ICSP MCLR  
 
 ## Programlayıcı Ayarları
 Programlayıcınız üzerinde yapmanız gereken iki önemli ayar bulunur.
