@@ -26,10 +26,10 @@ Programlayıcınız üzerinde yapmanız gereken iki önemli ayar bulunur.
 IoT HAT Serisinde iki farklı model mikrodenetleyici kullanılmıştır. Mikrodeneyleyicinizin model numarasına uyan HEX dosyasını kullanabilirsiniz. (Mikrodenetleyicilerin kullanılan donanım özellikleri aynıdır.)
 
 ## Güncellemeler
-FW 1.05 (25.02.2018):
-- Kızılötesi kumanda vericisinin NEC protokolüne göre zamanlaması iyileştirildi.
-FW 1.04 (05.04.2017):
-- Analog okuma ve kızılötesi iletişim değerlerinin I2C iletişiminde bazı Raspberry Pi kartlarına hatalı aktarımı düzeltildi.
+FW 1.05 (25.02.2018):  
+- Kızılötesi kumanda vericisinin NEC protokolüne göre zamanlaması iyileştirildi.  
+FW 1.04 (05.04.2017):  
+- Analog okuma ve kızılötesi iletişim değerlerinin I2C iletişiminde bazı Raspberry Pi kartlarına hatalı aktarımı düzeltildi.  
 
 ## Power User ve Hacker'lar için ipuçları
 - IoT HAT üzerindeki sensörler ve mikrodenetleyici aynı I2C hattı üzerine bağlıdır. Geliştireceğiniz PIC programı ile Raspberry Pi'a ihtiyaç duymadan kartınızı Arduino gibi başka bir sistemle kullanabilirsiniz. Pinlerin 3.3V toleranslı olduğunu unutmayın.
