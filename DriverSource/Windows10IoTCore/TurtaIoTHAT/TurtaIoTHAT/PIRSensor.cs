@@ -1,5 +1,5 @@
 ﻿/* Turta® IoT HAT Helper for Windows® 10 IoT Core
- * Copyright © 2017 Turta
+ * Copyright © 2017 - 2018 Turta
  * Distributed under the terms of the MIT license.
  */
 

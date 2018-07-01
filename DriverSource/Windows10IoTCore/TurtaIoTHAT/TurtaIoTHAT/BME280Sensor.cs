@@ -1,5 +1,5 @@
 ﻿/* Turta® IoT HAT Helper for Windows® 10 IoT Core
- * Copyright © 2017 Turta
+ * Copyright © 2017 - 2018 Turta
  * Distributed under the terms of the MIT license.
  */
 
@@ -169,10 +169,11 @@ namespace TurtaIoTHAT
         {
             try
             {
-                I2cConnectionSettings settings = new I2cConnectionSettings(BME280_I2C_ADDRESS);
-
-                settings.BusSpeed = I2cBusSpeed.FastMode;
-                settings.SharingMode = I2cSharingMode.Shared;
+                I2cConnectionSettings settings = new I2cConnectionSettings(BME280_I2C_ADDRESS)
+                {
+                    BusSpeed = I2cBusSpeed.FastMode,
+                    SharingMode = I2cSharingMode.Shared
+                };
 
                 DeviceInformationCollection dis = await DeviceInformation.FindAllAsync(I2cDevice.GetDeviceSelector("I2C1"));
 
@@ -185,7 +186,7 @@ namespace TurtaIoTHAT
                 await SetOversamplingsAndMode(HumidityOversampling.x04, TemperatureOversampling.x04, PressureOversampling.x04, SensorMode.Normal);
                 await SetConfig(InactiveDuration.ms1000, FilterCoefficient.fc04);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

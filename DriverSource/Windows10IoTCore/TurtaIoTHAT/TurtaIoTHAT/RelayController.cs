@@ -1,5 +1,5 @@
 ﻿/* Turta® IoT HAT Helper for Windows® 10 IoT Core
- * Copyright © 2017 Turta
+ * Copyright © 2017 - 2018 Turta
  * Distributed under the terms of the MIT license.
  */
 
@@ -61,6 +61,26 @@ namespace TurtaIoTHAT
 
                 default:
                     break;
+            }
+        }
+
+        /// <summary>
+        /// Reads the relay state.
+        /// </summary>
+        /// <param name="ch">Relay channel. 1 or 2.</param>
+        /// <returns>Relay state. True if relay is on, false if relay is off.</returns>
+        public bool ReadRelayState(int ch)
+        {
+            switch (ch)
+            {
+                case 1:
+                    return relay1.Read() == GpioPinValue.High ? true : false;
+
+                case 2:
+                    return relay2.Read() == GpioPinValue.High ? true : false;
+
+                default:
+                    return false;
             }
         }
 

@@ -12,9 +12,6 @@ namespace RelayControllerSampleApp
         // Relay Timer
         Timer relayTimer;
 
-        // Relay State
-        static bool relayState = false;
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -35,13 +32,10 @@ namespace RelayControllerSampleApp
         private static void RelayTimerTick(object state)
         {
             // Set Relay 1's state
-            relayController.SetRelay(1, relayState);
+            relayController.SetRelay(1, !relayController.ReadRelayState(1));
 
             // Set Relay 2's state
-            relayController.SetRelay(2, !relayState);
-
-            // Invert relay state variable
-            relayState = !relayState;
+            relayController.SetRelay(2, !relayController.ReadRelayState(2));
         }
     }
 }

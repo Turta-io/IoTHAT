@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="9b8982cb-28b5-4677-88b9-7419cf9126e6" Publisher="CN=Turta" Version="1.0.0.0" />
+  <Identity Name="9b8982cb-28b5-4677-88b9-7419cf9126e6" Publisher="CN=Turta" Version="1.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="9b8982cb-28b5-4677-88b9-7419cf9126e6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>RelayControllerSampleApp</DisplayName>

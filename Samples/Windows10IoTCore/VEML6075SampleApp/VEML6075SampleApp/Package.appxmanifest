@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="cd0da9e8-3f44-40f7-a864-5ec55a7e44af" Publisher="CN=Turta" Version="1.0.0.0" />
+  <Identity Name="cd0da9e8-3f44-40f7-a864-5ec55a7e44af" Publisher="CN=Turta" Version="1.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="cd0da9e8-3f44-40f7-a864-5ec55a7e44af" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>VEML6075SampleApp</DisplayName>

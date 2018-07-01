@@ -1,7 +1,7 @@
 # IoT HAT
-Turta IoT HAT, Raspberry Pi 3 ve pin uyumlu bilgisayarlara gesture tanımadan dokunma algılamaya birçok özellikte fonksiyon katar. Alanlarında en başarılı bileşenleri tek kartta birleştirerek karmaşık senaryoları kablo karmaşasıyla uğraşmadan kolaylıkla oluşturabilmenizi sağlar.
+Turta IoT HAT, Raspberry Pi ve pin uyumlu bilgisayarlara gesture tanımadan dokunma algılamaya birçok özellikte fonksiyon katar. Alanlarında en başarılı bileşenleri tek kartta birleştirerek karmaşık senaryoları kablo karmaşasıyla uğraşmadan kolaylıkla oluşturabilmenizi sağlar.
 
-IoT HAT üzerindeki tüm özelliklere I2C arabirimi ve GPIO denetleyicisi üzerinden erişebilirsiniz. Sensörler I2C1 hattı üzerinden bağlıdır. Sensörlere I2C1 üzerinde 0x77 gibi donanım adreslerinden erişilebilir. Rölelere, optokupler girişlerine ve hareket sensörüne GPIO denetleyicisi üzerinden erişilir. Kızılötesi iletişim, analog ve kapasitif girişler yardımcı mikrodenetleyici ile çalışır ve I2C üzerinden haberleşme sağlanır.
+IoT HAT üzerindeki tüm özelliklere I2C arabirimi ve GPIO denetleyicisi üzerinden erişebilirsiniz. Sensörler I2C1 hattı üzerinden bağlıdır. Sensörlere I2C1 üzerinde 0x76 gibi donanım adreslerinden erişilebilir. Rölelere, izole girişlere ve PIR hareket sensörüne GPIO denetleyicisi üzerinden erişilir. Kızılötesi iletişim ve analog girişler yardımcı mikrodenetleyici ile çalışır, I2C üzerinden haberleşme sağlanır.
 
 ## Kullanım Kılavuzu
 Bileşenleri nasıl kullanacağınızı anlatan kılavuza Wiki bölümünden erişebilirsiniz. [github.com/Turta-io/IoTHAT/wiki](https://github.com/Turta-io/IoTHAT/wiki "IoT HAT Wiki")
@@ -9,16 +9,19 @@ Bileşenleri nasıl kullanacağınızı anlatan kılavuza Wiki bölümünden eri
 ## Donanım Özellikleri
 IoT HAT Üzerinde aşağıda belirtilen donanımlar yer alır:
 
-### Bosch Sensortec BME280 Hava Durumu Sensörü
-Sıcaklık, nem, basınç ve deniz seviyesinden yükseklik ölçümü yapar.
+### Bosch Sensortec BME680 Hava Durumu Sensörü
+İç alan hava kalitesi, sıcaklık, nem, basınç ve deniz seviyesinden yükseklik ölçümü yapar.
+- Hava Kalitesi: 0 - 500 IAQ (Indoor Air Quality) aralığında 1 IAQ çözünürlüğünde iç alan hava kalitesi ölçümler.
 - Sıcaklık: -40C - 85C arasında 0.01C çözünürlüğünde sıcaklık ölçümler.
-- Nem: %0RH - %100RH arasında %0.008RH çözünürlüğünde bağın nem (RH) ölçümler.
+- Nem: %0RH - %100RH arasında, %3 hassasiyetinde, %0.008RH çözünürlüğünde bağıl nem (RH) ölçümler.
 - Basınç: 300 - 1100hPa arasında 0.18Pa çözünürlüğünde basınç ölçümler.
 - Yükseklik: Anlık havadurumuna göre deniz seviyesi basıncı belirtildiğinde, deniz seviyesine göre yüksekliği hesaplar.
 
-Sensörle I2C 0x77 adresi üzerinden haberleşilir.
+Sensörle I2C 0x76 adresi üzerinden haberleşilir.
 
-*Raspberry Pi'ın ısındığı durumlarda IoT HAT de ısınacağından sıcaklık ölçümü ortamın bir miktar üzerinde algılanır. Bu durumun önüne geçmek için sensör, kartın en az ısınan alanına yerleştirilmiş ve etrafına oyuk açılarak karttan izolesi sağlanmıştır. Hassas ölçüm gerektiği durumlarda Raspberry Pi'ınızı dik yerleştirerek ısınan havanın daha verimli tahliyesini sağlayabilirsiniz.*
+*Raspberry Pi'ın ısındığı durumlarda IoT HAT de ısınacağından sıcaklık ölçümü ortamın bir miktar üzerinde algılanır. Bu durumun önüne geçmek için sensör, kartın en az ısınan alanına yerleştirilmiş ve etrafına oluk açılarak karttan izolesi sağlanmıştır. Hassas ölçüm gerektiği durumlarda Raspberry Pi'ınızı dik yerleştirerek ısınan havanın daha verimli tahliyesini sağlayabilirsiniz. Raspbian Lite gibi masaüstü kullanmayan minimal işletim sistemleri Raspberry Pi'ınızı daha az ısıtacaktır.*
+
+*Hava kalitesini IAQ sonucuna göre ölçümlemek için Bosch'un sağladığı algoritmayı kullanmanız gerekir. Yayınladığımız sürücüler gas resistance değeri verir. Hava kalitesi sensörlerinin doğru ölçüm yapabilmesi için kullanılacakları ortamda birkaç gün çalıştırılması gerekir.*
 
 ### Avago APDS-9960 Işık, RGB, Gesture ve Mesafe Sensörü
 Işık miktarı, kırmızı - yeşil - mavi renk tonları, el hareketinin yönü ve mesafe algılaması yapar.
@@ -29,20 +32,20 @@ Işık miktarı, kırmızı - yeşil - mavi renk tonları, el hareketinin yönü
 
 Sensörle I2C 0x39 adresi üzerinden haberleşilir.
 
-### Maxim MAX30100 Nabız ve Oksijen Sensörü
-Optik olarak parmaktan nabız ve kandaki oksijen miktarını ölçümler.
-- Nabız: İşaret parmağından nabız ölçümü yapar. Kızılötesi LED ve alıcı ile ölçüm sağlanır.
-- SPO2: Nabız ölçümü ile birlikte kandaki oksijen oranı da ölçümlenir. Kırmızı LED ve alıcı ile ölçüm sağlanır.
-
-Sensörle I2C 0x57 adresi üzerinden haberleşilir.
-
 ### Vishay VEML6075 UV Sensörü
-UVA ve UVB değerlerini ölçümler. Buna göre UV A Indeks, UVB Indeks ve ortalama UV Indeks hesaplar.
+UVA ve UVB değerlerini ölçümler. Buna göre UV A Index, UVB Index ve ortalama UV Index hesaplar.
 - UVA: 315nm - 400nm arası dalga boyunda, ozon tabakası tarafından emilmeyen morötesi ışığı ölçümler.
 - UVB: 280nm - 315nm arası dalga boyunda, ozon tabakası tarafından bir kısmı emilen morötesi ışığı ölçümler.
-- UV Indeks: UV Radyasyonunu uluslararası ölçüm standardında hesaplar. Bu değere göre güneşin ne süre sonra cilde zarar vermeye başlayacağı hesaplanır.
+- UV Index: UV Radyasyonunu uluslararası ölçüm standardında hesaplar. Bu değere göre güneşin ne süre sonra cilde zarar vermeye başlayacağı hesaplanır.
 
 Sensörle I2C 0x10 adresi üzerinden haberleşilir.
+
+### NXP MMA8491Q İvme ve Eğim Sensörü
+3 Eksende ivme ölçümler, eğim algılanması durumunda interrupt üretir.
+- İvme: 14-bit +/- 8g ivme verisi 1 mg hassasiyetle ölçümlenir.
+- Eğim: 0.688g / 43.5 derece eğimde interrupt üretir. (IoT HAT üzerinde Z ekseni ivme çıkışı bağlıdır.)
+
+Sensörle I2C 0x55 adresi üzerinden haberleşilir.
 
 ### AM312 Pasif Kızılötesi Hareket Sensörü
 Ortamdaki insan ve hayvanların hareketliliğini algılar.
@@ -60,16 +63,16 @@ Röle 1 ve 2 kontrolü sırasıyla GPIO20 ve 12 pinleri üzerinden gerçekleşir
 
 *Bağlayacağınız cihazın en yüksek akım değerinin 2 Amper'i geçmemesi gerekir. Örneğin 12V 500mA güç tüketimindeki bir motor çalışmaya başlarken 2 Amper'in üzerinde akım çekebilir. Hızlı tekrar eden aç - kapa işlemi rölenizin ısınmasına ve saniyeler içerisinde arızalanmasına sebep olabilir. Kullanacağınız bileşenin elektrik kullanımını bağlamadan önce kontrol edin, gerekli durumlarda sigorta kullanın.*
 
-### PC817 Optokuplör Girişi
-4 Adet elektrik girişini algılar.
-- Optokuplörler: Dışarıdan verilen 5V girişini izole olarak algılar. Kart üzerindeki oyukla optokuplör girişleri kartın geri kalan kısmıyla izole edilmiştir.
+### LTV-827S Photocoupler Girişi
+4 Adet 5V girişini optik yalıtımla algılar.
+- Photocoupler: Dışarıdan verilen 5V girişini izole olarak algılar. Kart üzerindeki olukla girişer kartın geri kalan kısmından izole edilmiştir.
 
 Optokuplör 1, 2, 3 ve 4 girişleri sırasıyla GPIO 13, 19, 16 ve 26 pinleri üzerinden okunur.
 
-### Vishay TSOP38338 Kızılötesi Alıcı ve QEE113 Kızılötesi Verici
+### Vishay TSOP75338W Kızılötesi Alıcı ve VSMB10940X01 Kızılötesi Verici
 Kızılötesi kumanda verisini okur ve kızılötesi veri gönderir.
 - Kızılötesi alıcı: Alıcı modülü 38KHz'de NEC protokolünde 4 Byte'lık veri okur. Veri okunması tamamlandığında GPIO pininde interrupt sinyali oluşur ve I2C üzerinden gelen Byte dizisi okunur.
-- Kızılötesi verici: 100mW gücünde 38KHz NEC protokolünde 4 Byte'lık veri gönderir.
+- Kızılötesi verici: 940nm Dalga boyunda, 104mW gücünde 38KHz NEC protokolünde 4 Byte'lık veri gönderir.
 
 Kızılötesi iletişim I2C 0x28 adresinden sağlanır. Interrupt pini GPIO18'dir.
 
@@ -81,15 +84,17 @@ Kızılötesi iletişim I2C 0x28 adresinden sağlanır. Interrupt pini GPIO18'di
 
 Analog ölçüme I2C 0x28 adresinden erişilir.
 
-### I2C ve G/Ç Soketleri
-2 Adet I2C ve 4 adet çok fonksiyonlu G/Ç bağlantısı sağlar.
-- I2C Soketi: 2 Adet I2C bağlantısını dışarıya aktarır. Bu soketlerle sisteminize farklı sensörler ekleyebilirsiniz. (Kart üzerindeki sensörler adres çakışması olacağından bu hat üzerine tekrardan bağlanamaz. Ancak BME280 sensörünün adresi değiştirilebildiği için ikinci BME280'i bağlayabilirsiniz.)
-- G/Ç Soketi: Her soket analog girişle paylaşımlı kapasitif giriş ve Raspberry Pi GPIO'larına bağlı birer dijital pin içerir. GPIO pinlerini kullanarak buton, röle gibi bileşenleri sisteminize ekleyebilirsiniz.
+*Analog girişlere 3.3V üzerinde elektrik bağlamayın. 3.3V Ölçüm referans değeri üzerindeki elektrik donanımınıza zarar verebilir.*
 
-G/Ç Soketlerindeki GPIO pinlerinin numaraları sırasıyla GPIO 21, 22, 23 ve 24'dür.
+### I2C ve I/O Soketleri
+1 Adet I2C ve 4 adet çok fonksiyonlu I/O bağlantısı sağlar.
+- I2C Soketi: I2C bağlantısını dışarıya aktarır. Bu soketle sisteminize farklı sensörler ekleyebilirsiniz. (Kart üzerindeki sensörler adres çakışması olacağından bu hat üzerine tekrardan bağlanamaz. Ancak BME680 sensörünün adresi değiştirilebildiği için ikinci BME680'i bağlayabilirsiniz.)
+- I/O Soketleri: Her soket analog giriş ve Raspberry Pi GPIO'larına bağlı birer dijital pin içerir. GPIO pinlerini kullanarak buton, röle gibi bileşenleri sisteminize ekleyebilirsiniz.
+
+I/O Soketlerindeki GPIO pinlerinin numaraları sırasıyla GPIO 21, 22, 23 ve 24'dür.
 
 ## Yazılım Desteği
-IoT HAT, GPIO ve I2C erişimi sağlayan tüm işletim sistemlerinde kullanılabilir. Başlangıçta Windows 10 IoT Core üzerinde C# / UWP için sürücü ve örnek uygulamalar paylaşılmıştır. İlerleyen zamanda diğer platformlar için de örnekler paylaşılacaktır. Kullandığınız platform için geliştirilmiş 3. parti sürücüleri de kullanabilirsiniz.
+IoT HAT, GPIO ve I2C erişimi sağlayan tüm işletim sistemlerinde kullanılabilir. Yayınladığımız sürücüler dışındaki 3. parti sürücüleri de kullanabilirsiniz.
 
 ## Sanayi 4.0 Eğitimi
 Nesnelerin İnterneti kavramına hızlı giriş yapabilmeniz ve modern geliştirme teknolojilerini yakalamanız için Microsoft işbirliğiyle 16 saatlik video eğitimi hazırladık. Bu seride Raspberry Pi için Windows 10 IoT Core yüklenmesini, temel bir UWP uygulaması geliştirmeyi, Raspberry Pi'da uygulama çalıştırmayı, Azure IoT Hub'a veri göndermeyi ve Power BI'da verileri göreceksiniz. Eğitime https://www.acikakademi.com/portal/egitimler/sanayi-4-0.aspx adresinden erişebilirsiniz.

@@ -1,5 +1,5 @@
 ﻿/* Turta® IoT HAT Helper for Windows® 10 IoT Core
- * Copyright © 2017 Turta
+ * Copyright © 2017 - 2018 Turta
  * Distributed under the terms of the MIT license.
  */
 
@@ -87,10 +87,11 @@ namespace TurtaIoTHAT
         {
             try
             {
-                I2cConnectionSettings settings = new I2cConnectionSettings(MCU_I2C_ADDRESS);
-
-                settings.BusSpeed = I2cBusSpeed.FastMode;
-                settings.SharingMode = I2cSharingMode.Shared;
+                I2cConnectionSettings settings = new I2cConnectionSettings(MCU_I2C_ADDRESS)
+                {
+                    BusSpeed = I2cBusSpeed.FastMode,
+                    SharingMode = I2cSharingMode.Shared
+                };
 
                 DeviceInformationCollection dis = await DeviceInformation.FindAllAsync(I2cDevice.GetDeviceSelector("I2C1"));
 
@@ -98,7 +99,7 @@ namespace TurtaIoTHAT
 
                 await SetIRReception(enableReception);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -139,6 +140,7 @@ namespace TurtaIoTHAT
         /// <param name="enabled">True for enable IR decoding. False for disable IR decoding.</param>
         public async Task SetIRReception(bool enabled)
         {
+            GetLastCommand(); // Read last command to clear IR Remote Data Receive interrupt.
             WriteRegister(new byte[] { IR_RECEPTION, (enabled ? (byte)0x01 : (byte)0x00) });
             await Task.Delay(1);
         }

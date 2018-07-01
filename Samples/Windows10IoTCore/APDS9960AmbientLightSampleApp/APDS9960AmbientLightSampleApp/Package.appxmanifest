@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="5d0a1fba-e48d-455c-8e2a-54ad95e14bec" Publisher="CN=Turta" Version="1.0.0.0" />
+  <Identity Name="5d0a1fba-e48d-455c-8e2a-54ad95e14bec" Publisher="CN=Turta" Version="1.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="5d0a1fba-e48d-455c-8e2a-54ad95e14bec" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>APDS9960AmbientLightSampleApp</DisplayName>
