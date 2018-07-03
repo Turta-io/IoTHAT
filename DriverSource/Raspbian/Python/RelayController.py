@@ -1,7 +1,10 @@
+# Turta IoT HAT Helper for Raspbian
+# Distributed under the terms of the MIT license.
+
 import RPi.GPIO as GPIO
 
 #Pins
-relay1, relay2 = 12, 20
+relay1, relay2 = 20, 12
 
 #Initialize
 def Init():
