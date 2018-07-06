@@ -432,7 +432,7 @@ namespace TurtaIoTHAT
         /// </summary>
         /// <param name="tempADC">Analog temperature value.</param>
         /// <returns>Temperature in Celcius.</returns>
-        private double CompansateTemperature(int tempADC)
+        private double CompensateTemperature(int tempADC)
         {
             double val, var1, var2;
 
@@ -449,7 +449,7 @@ namespace TurtaIoTHAT
         /// </summary>
         /// <param name="presADC">Analog pressure value.</param>
         /// <returns>Pressure.</returns>
-        private double CompansatePressure(int presADC)
+        private double CompensatePressure(int presADC)
         {
             double val, var1, var2, var3;
 
@@ -480,7 +480,7 @@ namespace TurtaIoTHAT
         /// </summary>
         /// <param name="humADC">Analog humidity value.</param>
         /// <returns>Relative humidity.</returns>
-        private double CompansateHumidity(int humADC)
+        private double CompensateHumidity(int humADC)
         {
             double val, var1, var2, var3, var4, temp_comp;
 
@@ -539,7 +539,7 @@ namespace TurtaIoTHAT
             tempADC += ReadRegister_OneByte(BME680_TEMP_LSB) * 16;
             tempADC += ReadRegister_OneByte(BME680_TEMP_XLSB) / 16;
 
-            return CompansateTemperature(tempADC);
+            return CompensateTemperature(tempADC);
         }
 
         /// <summary>
@@ -555,7 +555,7 @@ namespace TurtaIoTHAT
             humADC = ReadRegister_OneByte(BME680_HUM_MSB) * 256;
             humADC += ReadRegister_OneByte(BME680_HUM_LSB);
 
-            return CompansateHumidity(humADC);
+            return CompensateHumidity(humADC);
         }
 
         /// <summary>
@@ -572,7 +572,7 @@ namespace TurtaIoTHAT
             presADC += ReadRegister_OneByte(BME680_PRESS_LSB) * 16;
             presADC += ReadRegister_OneByte(BME680_PRESS_XLSB) / 16;
 
-            return CompansatePressure(presADC);
+            return CompensatePressure(presADC);
         }
 
         /// <summary>
@@ -606,7 +606,7 @@ namespace TurtaIoTHAT
             gasResADC += ReadRegister_OneByte(BME680_GAS_R_LSB) / 64;
             gasRange = (ushort)(ReadRegister_OneByte(BME680_GAS_R_LSB) & 0x0F);
 
-            calAmbTemp = Convert.ToInt16(CompansateTemperature(tempADC));
+            calAmbTemp = Convert.ToInt16(CompensateTemperature(tempADC));
             val = CalculateGasResistance(gasResADC, gasRange);
 
             return val;
@@ -634,9 +634,9 @@ namespace TurtaIoTHAT
             humADC = ReadRegister_OneByte(BME680_HUM_MSB) * 256;
             humADC += ReadRegister_OneByte(BME680_HUM_LSB);
 
-            resultsTPH[0] = CompansateTemperature(tempADC);
-            resultsTPH[1] = CompansatePressure(presADC);
-            resultsTPH[2] = CompansateHumidity(humADC);
+            resultsTPH[0] = CompensateTemperature(tempADC);
+            resultsTPH[1] = CompensatePressure(presADC);
+            resultsTPH[2] = CompensateHumidity(humADC);
 
             return resultsTPH;
         }
@@ -721,7 +721,7 @@ namespace TurtaIoTHAT
         /// <summary>
         /// Calculates the heater resistance value for target heater resistance (Res_Heat_X) registers.
         /// </summary>
-        /// <param name="targetTemp"></param>
+        /// <param name="targetTemp">Target temperature.</param>
         /// <returns></returns>
         private byte CalculateHeaterResistance(uint targetTemp)
         {

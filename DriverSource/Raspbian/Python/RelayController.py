@@ -1,6 +1,13 @@
 # Turta IoT HAT Helper for Raspbian
 # Distributed under the terms of the MIT license.
 
+# Relay Controller Python Driver
+# Version 1.00 (Initial Release)
+# Updated: July 6th, 2018
+
+# For hardware info, visit www.turta.io/iothat
+# For questions, visit www.turta.io/forum or e-mail turta@turta.io
+
 import RPi.GPIO as GPIO
 
 #Pins
