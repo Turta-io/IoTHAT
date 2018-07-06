@@ -9,7 +9,6 @@
 # For questions, visit www.turta.io/forum or e-mail turta@turta.io
 
 import time
-import math
 from enum import IntEnum
 from smbus import SMBus
 
