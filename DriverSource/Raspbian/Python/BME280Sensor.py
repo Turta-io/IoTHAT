@@ -197,7 +197,6 @@ def SetOversamplingsAndMode(humidityOversampling, temperatureOversampling, press
     :param temperatureOversampling: Temperature Oversampling.
     :param pressureOversampling: Pressure oversampling.
     :param mode: Sensor mode."""
-
     WriteRegister(BME280_CTRL_HUM, humidityOversampling)
 
     time.sleep(0.001)
@@ -208,7 +207,6 @@ def SetConfig(inactiveDuration, filterCoefficient):
     """Sets the sensor configuration.
     :param inactiveDuration: Inactive duration between normal mode measurements.
     :param filterCoefficient: Filter coefficient."""
-
     WriteRegister(BME280_CONFIG, inactiveDuration | filterCoefficient)
 
 #Calibration and Compensation
