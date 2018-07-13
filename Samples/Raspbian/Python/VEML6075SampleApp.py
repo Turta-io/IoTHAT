@@ -1,27 +1,29 @@
 #! /usr/bin/python
 
 import time
-import VEML6075Sensor
+import Turta_VEML6075
 
 #Initialize
-VEML6075Sensor.Init()
+veml6075 = Turta_VEML6075.VEML6075Sensor()
+
+#Wait 1 second for the first sensor readings.
+time.sleep(1.0)
 
 try:
     while True:
         #Read & print UV Index
-        print "UV Index........: " + str(round(VEML6075Sensor.Calculate_Average_UV_Index(), 4))
+        print("UV Index........: " + str(round(veml6075.calculate_average_uv_index(), 4)))
 
         #Read & print UV Index A
-        print "UV Index A......: " + str(round(VEML6075Sensor.Calculate_UV_Index_A(), 4))
+        print("UV Index A......: " + str(round(veml6075.calculate_uv_index_a(), 4)))
 
         #Read & print UV Index B
-        print "UV Index B......: " + str(round(VEML6075Sensor.Calculate_UV_Index_B(), 4))
+        print("UV Index B......: " + str(round(veml6075.calculate_uv_index_b(), 4)))
 
         #Rest a bit
-        print "-----"
+        print("-----")
         time.sleep(10.0)
 
 #Exit on CTRL+C
 except KeyboardInterrupt:
-    #Release the resources
-    VEML6075Sensor.Dispose()
+    print('Bye.')

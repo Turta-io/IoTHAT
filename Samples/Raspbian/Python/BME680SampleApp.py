@@ -1,40 +1,39 @@
 #! /usr/bin/python
 
 import time
-import BME680Sensor
+import Turta_BME680
 
 #Variables
 #Sea level pressure in bar
 slp = 1000.0 #Update this from weather forecast to get precise altitude
 
 #Initialize
-BME680Sensor.Init()
+bme680 = Turta_BME680.BME680Sensor()
 
 try:
     while True:
         #Hint: To get temperature, pressure and humidity readings at the same time,
-        #call BME680Sensor.ReadTPH() method.
+        #call BME680Sensor.read_tph() method.
 
         #Read & print temperature
-        print "Temperature.....: " + str(round(BME680Sensor.ReadTemperature(), 1)) + "C"
+        print("Temperature.....: " + str(round(bme680.read_temperature(), 1)) + "C")
 
         #Read & print humidity
-        print "Humidity........: %" + str(round(BME680Sensor.ReadHumidity(), 1)) + "RH"
+        print("Humidity........: %" + str(round(bme680.read_humidity(), 1)) + "RH")
 
         #Read & print pressure
-        print "Pressure........: " + str(round(BME680Sensor.ReadPressure(), 1)) + "Pa"
+        print("Pressure........: " + str(round(bme680.read_pressure(), 1)) + "Pa")
 
         #Read & print altitude
-        print "Altitude........: " + str(round(BME680Sensor.ReadAltitude(slp), 1)) + "m"
+        print("Altitude........: " + str(round(bme680.read_altitude(slp), 1)) + "m")
 
         #Read & print gas resistance
-        print "Gas Resistance..: " + str(round(BME680Sensor.ReadGasResistance(), 1)) + "Ohms"
+        print("Gas Resistance..: " + str(round(bme680.read_gas_resistance(), 1)) + "Ohms")
 
         #Rest a bit
-        print "-----"
+        print("-----")
         time.sleep(10.0)
 
 #Exit on CTRL+C
 except KeyboardInterrupt:
-    #Release the resources
-    BME680Sensor.Dispose()
+    print('Bye.')

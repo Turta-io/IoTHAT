@@ -1,22 +1,20 @@
 import time
-import RelayController
+import Turta_RelayController
 
 #Initialize
-RelayController.Init()
+rc = Turta_RelayController.RelayController()
 
 try:
     while 1:
         #Toggle relay 1
-        RelayController.SetRelay(1, not RelayController.ReadRelayState(1))
+        rc.set_relay(1, not rc.read_relay_state(1))
+        print("Relay 1 state: " + ("On" if rc.read_relay_state(1) else "Off"))
         time.sleep(5.0)
 
-        #Turn relay 2 on
-        RelayController.SetRelay(2, True)
-        time.sleep(5.0)
-
-        #Turn relay 2 off
-        RelayController.SetRelay(2, False)
+        #Toggle relay 2
+        rc.set_relay(2, not rc.read_relay_state(2))
+        print("Relay 2 state: " + ("On" if rc.read_relay_state(2) else "Off"))
         time.sleep(5.0)
 
 except KeyboardInterrupt:
-    RelayController.Dispose()
+    print('Bye.')
