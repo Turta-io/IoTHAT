@@ -5,8 +5,7 @@
 # Version 1.01
 # Updated: July 14th, 2018
 
-# For hardware info, visit www.turta.io/iothat
-# For questions e-mail turta@turta.io
+# Visit https://docs.turta.io for documentation.
 
 import time
 import math
