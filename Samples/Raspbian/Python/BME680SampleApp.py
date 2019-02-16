@@ -1,7 +1,8 @@
 #! /usr/bin/python
 
 import time
-import Turta_BME680
+from turta_iothat import Turta_BME680
+#Install IoT HAT library with "pip install turta-iothat"
 
 #Variables
 #Sea level pressure in bar

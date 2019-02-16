@@ -1,5 +1,6 @@
 import time
-import Turta_IOPort
+from turta_iothat import Turta_IOPort
+#Install IoT HAT library with "pip install turta-iothat"
 
 #Initialize
 #IO Ports 1 and 2 are set to be inputs

@@ -1,7 +1,8 @@
 #! /usr/bin/python
 
 import time
-import Turta_MMA8491Q
+from turta_iothat import Turta_MMA8491Q
+#Install IoT HAT library with "pip install turta-iothat"
 
 #Initialize
 mma8491q = Turta_MMA8491Q.MMA8491QSensor()

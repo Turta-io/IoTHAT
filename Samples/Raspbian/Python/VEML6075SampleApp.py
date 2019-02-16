@@ -1,7 +1,8 @@
 #! /usr/bin/python
 
 import time
-import Turta_VEML6075
+from turta_iothat import Turta_VEML6075
+#Install IoT HAT library with "pip install turta-iothat"
 
 #Initialize
 veml6075 = Turta_VEML6075.VEML6075Sensor()

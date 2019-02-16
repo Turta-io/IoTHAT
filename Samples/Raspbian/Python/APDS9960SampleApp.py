@@ -1,7 +1,8 @@
 #! /usr/bin/python
 
 import time
-import Turta_APDS9960
+from turta_iothat import Turta_APDS9960
+#Install IoT HAT library with "pip install turta-iothat"
 
 #Initialize
 apds9960 = Turta_APDS9960.APDS9960Sensor()

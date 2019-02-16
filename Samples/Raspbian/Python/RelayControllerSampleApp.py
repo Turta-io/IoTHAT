@@ -1,5 +1,6 @@
 import time
-import Turta_RelayController
+from turta_iothat import Turta_RelayController
+#Install IoT HAT library with "pip install turta-iothat"
 
 #Initialize
 rc = Turta_RelayController.RelayController()
