@@ -2,8 +2,8 @@
 # Distributed under the terms of the MIT license.
 
 # Python Driver for IO Port
-# Version 1.01
-# Updated: February 12th, 2019
+# Version 1.02
+# Updated: February 16th, 2019
 
 # Visit https://docs.turta.io for documentation.
 
@@ -126,10 +126,6 @@ class IOPort:
     def __del__(self):
         """Releases the resources."""
         if self.is_initialized:
-            GPIO.output(self.d1, GPIO.LOW)
-            GPIO.output(self.d2, GPIO.LOW)
-            GPIO.output(self.d3, GPIO.LOW)
-            GPIO.output(self.d4, GPIO.LOW)
             GPIO.cleanup()
             del self.is_initialized
         return
