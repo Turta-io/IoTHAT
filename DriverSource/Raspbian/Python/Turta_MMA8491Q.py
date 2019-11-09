@@ -2,8 +2,8 @@
 # Distributed under the terms of the MIT license.
 
 # Python Driver for NXP MMA8491Q 3-Axis Accelerometer & Tilt Sensor
-# Version 1.01
-# Updated: July 14th, 2018
+# Version 1.02
+# Updated: June 25th, 2019
 
 # Visit https://docs.turta.io for documentation.
 
@@ -51,8 +51,10 @@ class MMA8491QSensor:
         """
         return self.bus.read_i2c_block_data(self.I2C_ADDRESS, reg_addr, 6)
 
+    #Initialization
+
     def __init__(self):
-        """Initiates the APDS-9960 sensor to get ambient light, RGB light and proximity."""
+        """Initiates the MMA8491Q sensor."""
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.mma8491qEn, GPIO.OUT)
